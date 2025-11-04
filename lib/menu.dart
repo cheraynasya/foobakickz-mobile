@@ -14,24 +14,6 @@ class MyHomePage extends StatelessWidget {
     ItemHomepage("Create Product", Icons.add_box, Colors.red),
   ];
 
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-
-//   void _incrementCounter() {
-//     setState(() {
-//       // This call to setState tells the Flutter framework that something has
-//       // changed in this State, which causes it to rerun the build method below
-//       // so that the display can reflect the updated values. If we changed
-//       // _counter without calling setState(), then the build method would not be
-//       // called again, and so nothing would appear to happen.
-//       _counter++;
-//     });
-//   }
-
 @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,33 +89,32 @@ class ItemCard extends StatelessWidget {
   // Menampilkan kartu dengan ikon dan nama.
 
   final ItemHomepage item;
-
   const ItemCard(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      // MENGUBAH: Menggunakan warna dari objek 'item'
+      // Menggunakan warna dari objek item
       color: item.color,
-      // Membuat sudut kartu melengkung.
+      // Membuat sudut kartu melengkung
       borderRadius: BorderRadius.circular(12),
 
       child: InkWell(
-        // Aksi ketika kartu ditekan.
+        // Aksi saat kartu ditekan
         onTap: () {
-          // MENGUBAH: Memunculkan SnackBar sesuai nama tombol
+          // Memunculkan SnackBar sesuai nama tombol
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
             );
         },
-        // Container untuk menyimpan Icon dan Text
+        // Container untuk menyimpan icon dan text
         child: Container(
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
+              // Menyusun icon dan text menjadi di tengah kartu
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
@@ -156,7 +137,7 @@ class ItemCard extends StatelessWidget {
   }
 }
 
-// 3. Class InfoCard (Reusable Component untuk Informasi Pengguna)
+// Class InfoCard (untuk informasi pengguna)
 class InfoCard extends StatelessWidget {
   final String title;
   final String content;

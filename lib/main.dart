@@ -1,4 +1,4 @@
-import 'package:foobakickz_mobile/menu.dart';
+import 'package:foobakickz_mobile/screens/menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {

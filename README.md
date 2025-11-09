@@ -32,30 +32,31 @@
    - Hot restart: Proses aplikasi dan VM di-reset lalu aplikasi dijalankan ulang dari nol, sehingga semua state runtime terhapus. Digunakan saat perubahan memengaruhi inisialisasi atau struktur aplikasi yang memerlukan restart penuh, umumnya memakan waktu lebih lama dibanding hot reload.
 
 ## Pertanyaan Tugas 8
+
 1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
 
    Perbedaan utama terletak pada bagaimana halaman baru ditempatkan dalam stack navigasi (tumpukan riwayat halaman). 
-- Navigator.push(), menambahkan halaman baru ke atas stack navigasi. Halaman sebelumnya tetap ada, sehingga pengguna dapat kembali dengan menekan tombol back.
-- - Penggunaan pada Football Shop: Cocok ketika pengguna perlu kembali ke halaman sebelumnya, seperti kembali dari halaman detail produk ke halaman daftar produk.
-- Navigator.pushReplacement(), menggantikan halaman yang sedang aktif saat ini di tumpukan dengan halaman yang baru. Halaman sebelumnya dihapus dari stack, sehingga pengguna tidak dapat kembali ke halaman yang telah diganti. 
-- - Penggunaan pada Football Shop: Cocok untuk navigasi melalui drawer antar halaman utama (misalnya dari home ke halaman tambah produk). Untuk mencegah penumpukan halaman yang tidak perlu dan menjaga perilaku tombol back tetap sesuai (keluar aplikasi, bukan kembali ke halaman lama).
+   - Navigator.push(), menambahkan halaman baru ke atas stack navigasi. Halaman sebelumnya tetap ada, sehingga pengguna dapat kembali dengan menekan tombol back.
+     - Penggunaan pada Football Shop: Cocok ketika pengguna perlu kembali ke halaman sebelumnya, seperti kembali dari halaman detail produk ke halaman daftar produk.
+   - Navigator.pushReplacement(), menggantikan halaman yang sedang aktif saat ini di tumpukan dengan halaman yang baru. Halaman sebelumnya dihapus dari stack, sehingga pengguna tidak dapat kembali ke halaman yang telah diganti. 
+     - Penggunaan pada Football Shop: Cocok untuk navigasi melalui drawer antar halaman utama (misalnya dari home ke halaman tambah produk). Untuk mencegah penumpukan halaman yang tidak perlu dan menjaga perilaku tombol back tetap sesuai (keluar aplikasi, bukan kembali ke halaman lama).
 
-2. Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+2. Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi? 
 
-Struktur halaman dibangun menggunakan kombinasi Scaffold, AppBar, dan Drawer:
-- Scaffold, digunakan sebagai kerangka dasar setiap halaman untuk menyediakan area tampilan utama. Setiap halaman penting (seperti MyHomePage dan ProductFormPage) menggunakan Scaffold untuk menyediakan area standar untuk AppBar dan Body.
-- AppBar, ditempatkan di dalam Scaffold. AppBar memberikan judul aplikasi yang konsisten di bagian atas setiap halaman dan secara otomatis menampilkan ikon hamburger untuk membuka drawer.
-- Drawer, dibuat terpisah sebagai widget reusable (LeftDrawer) dan dipasang pada semua halaman utama, sehingga menu navigasi tetap seragam di seluruh aplikasi.
+   Struktur halaman dibangun menggunakan kombinasi Scaffold, AppBar, dan Drawer:
+   - Scaffold, digunakan sebagai kerangka dasar setiap halaman untuk menyediakan area tampilan utama. Setiap halaman penting (seperti MyHomePage dan ProductFormPage) menggunakan Scaffold untuk menyediakan area standar untuk AppBar dan Body.
+   - AppBar, ditempatkan di dalam Scaffold. AppBar memberikan judul aplikasi yang konsisten di bagian atas setiap halaman dan secara otomatis menampilkan ikon hamburger untuk membuka drawer.
+   - Drawer, dibuat terpisah sebagai widget reusable (LeftDrawer) dan dipasang pada semua halaman utama, sehingga menu navigasi tetap seragam di seluruh aplikasi.
 
 3. Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
 
-Layout widget sangat penting untuk memastikan formulir (seperti di ProductFormPage) mudah digunakan dan tampil baik di berbagai perangkat.
-- SingleChildScrollView, kelebihan utamanya adalah mencegah overflow error (konten berlebih) yang sering terjadi saat keyboard virtual muncul di layar. Dengan membungkus semua elemen form, pengguna selalu bisa menggulir untuk melihat semua input field, termasuk tombol Save di bagian bawah.
-- Padding, digunakan untuk memberikan jarak antar elemen agar tampilan lebih rapi dan mudah dibaca, mencegah input field menempel ke tepi layar atau menumpuk satu sama lain.
-- Column atau ListView, digunakan untuk menyusun elemen-elemen form secara vertikal dan teratur, yang merupakan standar dalam desain antarmuka formulir.
+   Layout widget sangat penting untuk memastikan formulir (seperti di ProductFormPage) mudah digunakan dan tampil baik di berbagai perangkat.
+   - SingleChildScrollView, kelebihan utamanya adalah mencegah overflow error (konten berlebih) yang sering terjadi saat keyboard virtual muncul di layar. Dengan membungkus semua elemen form, pengguna selalu bisa menggulir untuk melihat semua input field, termasuk tombol Save di bagian bawah.
+   - Padding, digunakan untuk memberikan jarak antar elemen agar tampilan lebih rapi dan mudah dibaca, mencegah input field menempel ke tepi layar atau menumpuk satu sama lain.
+   - Column atau ListView, digunakan untuk menyusun elemen-elemen form secara vertikal dan teratur, yang merupakan standar dalam desain antarmuka formulir.
 
 4. Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
 
-Penyesuaian warna tema dilakukan di dua tempat untuk mencapai konsistensi sekaligus memberikan identitas visual yang unik pada halaman form:
-- Pada main.dart, warna utama aplikasi ditetapkan pada file main.dart menggunakan primarySwatch: Colors.blue. Warna ini menentukan warna default untuk elemen-elemen seperti AppBar di halaman utama (MyHomePage), membangun identitas visual biru untuk Foobakickz.
-- Pada product_form_page.dart, Warna di halaman form diubah menjadi warna lain untuk AppBar dan tombol Save. Hal ini dilakukan untuk memberi pembeda visual sekaligus memperkuat identitas toko.
+   Penyesuaian warna tema dilakukan di dua tempat untuk mencapai konsistensi sekaligus memberikan identitas visual yang unik pada halaman form:
+   - Pada main.dart, warna utama aplikasi ditetapkan pada file main.dart menggunakan primarySwatch: Colors.blue. Warna ini menentukan warna default untuk elemen-elemen seperti AppBar di halaman utama (MyHomePage), membangun identitas visual biru untuk Foobakickz.
+   - Pada product_form_page.dart, Warna di halaman form diubah menjadi warna lain untuk AppBar dan tombol Save. Hal ini dilakukan untuk memberi pembeda visual sekaligus memperkuat identitas toko.

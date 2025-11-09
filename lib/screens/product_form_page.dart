@@ -26,7 +26,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tambah Produk Baru', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.indigo.shade800,
+        backgroundColor: Colors.red.shade800,
         foregroundColor: Colors.white,
       ),
       drawer: const LeftDrawer(), // Drawer
@@ -122,7 +122,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.indigo.shade800,
+                      backgroundColor: Colors.red.shade800,
                       foregroundColor: Colors.white,
                       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                     ),

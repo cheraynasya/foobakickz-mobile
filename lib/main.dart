@@ -1,5 +1,8 @@
 import 'package:foobakickz_mobile/screens/menu.dart';
+import 'package:foobakickz_mobile/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +13,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'FoobaKickz',
-      theme: ThemeData(
-       colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-            .copyWith(secondary: Colors.blueAccent[400]),
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'FoobaKickz',
+        theme: ThemeData(
+         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+              .copyWith(secondary: Colors.blueAccent[400]),
         useMaterial3: true,
       ),
-      home: MyHomePage(),
-    );
+      // Arahkan HOME ke LoginPage
+      home: const LoginPage(),
+    ));
   }
 }

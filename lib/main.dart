@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'FoobaKickz',
         theme: ThemeData(
-         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
-              .copyWith(secondary: Colors.blueAccent[400]),
+         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
+              .copyWith(secondary: Colors.indigoAccent[400]),
         useMaterial3: true,
       ),
       // Arahkan HOME ke LoginPage

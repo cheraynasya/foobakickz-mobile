@@ -11,9 +11,9 @@ class MyHomePage extends StatelessWidget {
 
   // List items untuk ItemCard
   final List<ItemHomepage> items = [
-    ItemHomepage("All Products", Icons.checklist, Colors.blue),
-    ItemHomepage("My Products", Icons.shopping_bag, Colors.green),
-    ItemHomepage("Create Product", Icons.add_box, Colors.red),
+    ItemHomepage("All Products", Icons.checklist, Colors.indigo),
+    ItemHomepage("My Products", Icons.shopping_bag, Colors.indigo),
+    ItemHomepage("Create Product", Icons.add_box, Colors.indigo),
   ];
 
 @override

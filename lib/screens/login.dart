@@ -17,7 +17,7 @@ class LoginApp extends StatelessWidget {
       title: 'Login',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.indigo)
           .copyWith(secondary: Colors.blueAccent[400]),
       ),
       home: const LoginPage(),
